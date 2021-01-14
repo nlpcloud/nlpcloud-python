@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='spacycloud-client',
+    name='spacycloud',
     version='0.0.1',
     description='A Python client for the spaCy Cloud API (https://docs.spacycloud.io)',
     packages=['spacycloud'],

@@ -5,29 +5,37 @@ API_VERSION = "v1"
 
 
 class Client:
-    def __init__(self, token):
+    def __init__(self, model, token):
         self.headers = {
             "Authorization": "Token " + token,
         }
-        self.root_url = "{}/{}".format(BASE_URL, API_VERSION)
+        self.root_url = "{}/{}/{}".format(BASE_URL, API_VERSION, model)
 
-    def _call_api(self, endpoint, model, user_input):
+    def _call_api(self, endpoint, user_input):
         payload = {
             "text": user_input
         }
 
         r = requests.post(
-            "{}/{}/endpoint".format(self.root_url, model), json=payload, headers=self.headers)
+            "{}/{}".format(self.root_url, endpoint), json=payload, headers=self.headers)
 
         r.raise_for_status()
 
         return r.json()
 
-    def entities(self, model, user_input):
-        return self._call_api("entities", model, user_input)
+    def entities(self, user_input):
+        return self._call_api("entities", user_input)
 
-    def dependencies(self, model, user_input):
-        return self._call_api("dependencies", model, user_input)
+    def dependencies(self, user_input):
+        return self._call_api("dependencies", user_input)
 
-    def sentence_dependencies(self, model, user_input):
-        return self._call_api("sentence_dependencies", model, user_input)
+    def sentence_dependencies(self, user_input):
+        return self._call_api("sentence_dependencies", user_input)
+
+    def lib_versions(self):
+        r = requests.get(
+            "{}/version".format(self.root_url), headers=self.headers)
+
+        r.raise_for_status()
+
+        return r.json()
