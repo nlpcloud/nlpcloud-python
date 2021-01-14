@@ -2,7 +2,7 @@
 
 This is a Python client for the spaCy Cloud API: https://docs.spacycloud.io
 
-spaCy Cloud serves all the spaCy pre-trained models, and your own custom models, through a RESTful API.
+spaCy Cloud serves all the spaCy pre-trained models, and your own custom models, through a RESTful API, so it's easy for you to use them in production.
 
 If you face an issue, don't hesitate to raise it as a Github issue. Thanks!
 
