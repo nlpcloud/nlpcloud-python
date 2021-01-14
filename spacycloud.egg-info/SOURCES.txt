@@ -1,0 +1,7 @@
+README.md
+setup.py
+spacycloud/__init__.py
+spacycloud.egg-info/PKG-INFO
+spacycloud.egg-info/SOURCES.txt
+spacycloud.egg-info/dependency_links.txt
+spacycloud.egg-info/top_level.txt

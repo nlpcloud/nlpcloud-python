@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: spacycloud
+Version: 1.0.0
+Summary: A Python client for the spaCy Cloud API (https://docs.spacycloud.io)
+Home-page: https://github.com/spacycloud/spacycloud-python
+Author: Julien Salinas
+Author-email: all@juliensalinas.com
+License: MIT
+Description: UNKNOWN
+Keywords: api,client,spacycloud
+Platform: UNKNOWN
