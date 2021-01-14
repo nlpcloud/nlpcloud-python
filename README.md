@@ -25,12 +25,12 @@ client = spacycloud.Client("en_core_web_sm", "4eC39HqLyjWDarjtT1zdp7dc")
 client.entities("John Doe is a Go Developer at Google")
 ```
 
-And a full example that uses your own custom model `3827`:
+And a full example that uses your own custom model `7894`:
 
 ```python
 import spacycloud
 
-client = spacycloud.Client("custom_model/3838", "4eC39HqLyjWDarjtT1zdp7dc")
+client = spacycloud.Client("custom_model/7894", "4eC39HqLyjWDarjtT1zdp7dc")
 client.entities("John Doe is a Go Developer at Google")
 ```
 
