@@ -19,6 +19,8 @@ class Client:
         r = requests.post(
             "{}/{}/endpoint".format(self.root_url, model), json=payload, headers=self.headers)
 
+        r.raise_for_status()
+
         return r.json()
 
     def entities(self, model, user_input):
