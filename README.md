@@ -83,7 +83,7 @@ Call the `entities()` method and pass the text you want to perform named entity 
 client.entities("<Your block of text>")
 ```
 
-The above command returns a JSON.
+The above command returns a JSON object.
 
 
 ### Dependencies Endpoint
@@ -94,7 +94,7 @@ Call the `dependencies()` method and pass the text you want to perform part of s
 client.dependencies("<Your block of text>")
 ```
 
-The above command returns a JSON.
+The above command returns a JSON object.
 
 ### Sentence Dependencies Endpoint
 
@@ -104,7 +104,7 @@ Call the `sentence_dependencies()` method and pass the text you want to perform 
 client.sentence_dependencies("<Your block of text>")
 ```
 
-The above command returns a JSON.
+The above command returns a JSON object.
 
 ### Library Versions Endpoint
 
@@ -114,5 +114,5 @@ Call the `lib_versions()` method to know the versions of the libraries used behi
 client.lib_versions()
 ```
 
-The above command returns a JSON.
+The above command returns a JSON object.
 
