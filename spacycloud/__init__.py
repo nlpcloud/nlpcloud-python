@@ -11,7 +11,7 @@ class Client:
         }
         self.root_url = "{}/{}/{}".format(BASE_URL, API_VERSION, model)
 
-    def _call_api(self, endpoint, user_input):
+    def _api_post(self, endpoint, user_input):
         payload = {
             "text": user_input
         }
@@ -23,19 +23,22 @@ class Client:
 
         return r.json()
 
-    def entities(self, user_input):
-        return self._call_api("entities", user_input)
-
-    def dependencies(self, user_input):
-        return self._call_api("dependencies", user_input)
-
-    def sentence_dependencies(self, user_input):
-        return self._call_api("sentence_dependencies", user_input)
-
-    def lib_versions(self):
+    def _api_get(self, endpoint):
         r = requests.get(
-            "{}/version".format(self.root_url), headers=self.headers)
+            "{}/{}".format(self.root_url, endpoint), headers=self.headers)
 
         r.raise_for_status()
 
         return r.json()
+
+    def entities(self, user_input):
+        return self._api_post("entities", user_input)
+
+    def dependencies(self, user_input):
+        return self._api_post("dependencies", user_input)
+
+    def sentence_dependencies(self, user_input):
+        return self._api_post("sentence_dependencies", user_input)
+
+    def lib_versions(self):
+        return self._api_get("version")
