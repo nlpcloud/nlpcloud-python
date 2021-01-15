@@ -1,4 +1,4 @@
-# Python client for spaCy Cloud
+# Python Client For spaCy Cloud
 
 This is a Python client for the spaCy Cloud API: https://docs.spacycloud.io
 
