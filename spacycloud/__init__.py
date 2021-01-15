@@ -38,7 +38,7 @@ class Client:
         return self._api_post("dependencies", user_input)
 
     def sentence_dependencies(self, user_input):
-        return self._api_post("sentence_dependencies", user_input)
+        return self._api_post("sentence-dependencies", user_input)
 
     def lib_versions(self):
         return self._api_get("version")
