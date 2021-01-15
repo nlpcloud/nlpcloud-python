@@ -88,7 +88,7 @@ The above command returns a JSON object.
 
 ### Dependencies Endpoint
 
-Call the `dependencies()` method and pass the text you want to perform part of speech tagging (POS) on.
+Call the `dependencies()` method and pass the text you want to perform part of speech tagging (POS) + arcs on.
 
 ```python
 client.dependencies("<Your block of text>")
@@ -98,7 +98,7 @@ The above command returns a JSON object.
 
 ### Sentence Dependencies Endpoint
 
-Call the `sentence_dependencies()` method and pass the text you want to perform POS with arcs on.
+Call the `sentence_dependencies()` method and pass a block of text made up of several sentencies you want to perform POS + arcs on.
 
 ```python
 client.sentence_dependencies("<Your block of text>")
