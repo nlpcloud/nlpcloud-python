@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: spacycloud
-Version: 1.0.3
+Version: 1.0.4
 Summary: Python client for the spaCy Cloud API
 Home-page: https://github.com/spacycloud/spacycloud-python
 Author: Julien Salinas
