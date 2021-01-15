@@ -34,7 +34,7 @@ client = spacycloud.Client("custom_model/7894", "4eC39HqLyjWDarjtT1zdp7dc")
 client.entities("John Doe is a Go Developer at Google")
 ```
 
-Here is what the response could look like:
+A json object is returned. Here is what it could look like:
 
 ```json
 [
