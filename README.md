@@ -1,8 +1,8 @@
-# Python Client For spaCy Cloud
+# Python Client For NLP Cloud
 
-This is a Python client for the spaCy Cloud API: https://docs.spacycloud.io
+This is a Python client for the NLP Cloud API: https://docs.nlpcloud.io
 
-spaCy Cloud serves all the spaCy pre-trained models, and your own custom models, through a RESTful API, so it's easy for you to use them in production.
+NLP Cloud serves all the spaCy pre-trained models, and your own custom models, through a RESTful API, so it's easy for you to use them in production.
 
 If you face an issue, don't hesitate to raise it as a Github issue. Thanks!
 
@@ -11,7 +11,7 @@ If you face an issue, don't hesitate to raise it as a Github issue. Thanks!
 Install via pip.
 
 ```shell
-pip install spacycloud
+pip install nlpcloud
 ```
 
 ## Examples
@@ -19,18 +19,18 @@ pip install spacycloud
 Here is a full example that uses the `en_core_web_sm` model, with a fake token:
 
 ```python
-import spacycloud
+import nlpcloud
 
-client = spacycloud.Client("en_core_web_sm", "4eC39HqLyjWDarjtT1zdp7dc")
+client = nlpcloud.Client("en_core_web_sm", "4eC39HqLyjWDarjtT1zdp7dc")
 client.entities("John Doe is a Go Developer at Google")
 ```
 
 And a full example that uses your own custom model `7894`:
 
 ```python
-import spacycloud
+import nlpcloud
 
-client = spacycloud.Client("custom_model/7894", "4eC39HqLyjWDarjtT1zdp7dc")
+client = nlpcloud.Client("custom_model/7894", "4eC39HqLyjWDarjtT1zdp7dc")
 client.entities("John Doe is a Go Developer at Google")
 ```
 
@@ -63,16 +63,16 @@ A json object is returned. Here is what it could look like:
 
 ### Client Initialization
 
-Pass the spaCy model you want to use and the spaCy cloud token to the client during initialization.
+Pass the spaCy model you want to use and the NLP Cloud token to the client during initialization.
 
 The spaCy model can either be a spaCy pretrained model like `en_core_web_sm`, `fr_core_news_lg`... but also one of your custom spaCy models using `custom_model/<model id>` (e.g. `custom_model/2568`).
 
-Your token can be retrieved from your [spaCy Cloud dashboard](https://spacycloud.io/home/token).
+Your token can be retrieved from your [NLP Cloud dashboard](https://nlpcloud.io/home/token).
 
 ```python
-import spacycloud
+import nlpcloud
 
-client = spacycloud.Client("<model>", "<your token>")
+client = nlpcloud.Client("<model>", "<your token>")
 ```
 
 ### Entities Endpoint

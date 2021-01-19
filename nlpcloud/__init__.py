@@ -1,6 +1,6 @@
 import requests
 
-BASE_URL = "https://api.spacycloud.io"
+BASE_URL = "https://api.nlpcloud.io"
 API_VERSION = "v1"
 
 
