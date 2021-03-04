@@ -11,34 +11,97 @@ class Client:
         }
         self.root_url = "{}/{}/{}".format(BASE_URL, API_VERSION, model)
 
-    def _api_post(self, endpoint, user_input):
+    def entities(self, text):
         payload = {
-            "text": user_input
+            "text": text
         }
 
         r = requests.post(
-            "{}/{}".format(self.root_url, endpoint), json=payload, headers=self.headers)
+            "{}/{}".format(self.root_url, "entities"), json=payload, headers=self.headers)
 
         r.raise_for_status()
 
         return r.json()
 
-    def _api_get(self, endpoint):
-        r = requests.get(
-            "{}/{}".format(self.root_url, endpoint), headers=self.headers)
+    def classification(self, text, labels, multi_class):
+        payload = {
+            "text": text,
+            "labels": labels,
+            "multi_class": multi_class
+        }
+
+        r = requests.post(
+            "{}/{}".format(self.root_url, "classification"), json=payload, headers=self.headers)
 
         r.raise_for_status()
 
         return r.json()
 
-    def entities(self, user_input):
-        return self._api_post("entities", user_input)
+    def sentiment(self, text):
+        payload = {
+            "text": text
+        }
 
-    def dependencies(self, user_input):
-        return self._api_post("dependencies", user_input)
+        r = requests.post(
+            "{}/{}".format(self.root_url, "sentiment"), json=payload, headers=self.headers)
 
-    def sentence_dependencies(self, user_input):
-        return self._api_post("sentence-dependencies", user_input)
+        r.raise_for_status()
+
+        return r.json()
+
+    def question(self, context, question):
+        payload = {
+            "context": context,
+            "question": question
+        }
+
+        r = requests.post(
+            "{}/{}".format(self.root_url, "question"), json=payload, headers=self.headers)
+
+        r.raise_for_status()
+
+        return r.json()
+
+    def summarization(self, text):
+        payload = {
+            "text": text
+        }
+
+        r = requests.post(
+            "{}/{}".format(self.root_url, "summarization"), json=payload, headers=self.headers)
+
+        r.raise_for_status()
+
+        return r.json()
+
+    def dependencies(self, text):
+        payload = {
+            "text": text
+        }
+
+        r = requests.post(
+            "{}/{}".format(self.root_url, "dependencies"), json=payload, headers=self.headers)
+
+        r.raise_for_status()
+
+        return r.json()
+
+    def sentence_dependencies(self, text):
+        payload = {
+            "text": text
+        }
+
+        r = requests.post(
+            "{}/{}".format(self.root_url, "sentence-dependencies"), json=payload, headers=self.headers)
+
+        r.raise_for_status()
+
+        return r.json()
 
     def lib_versions(self):
-        return self._api_get("version")
+        r = requests.get(
+            "{}/{}".format(self.root_url, "versions"), headers=self.headers)
+
+        r.raise_for_status()
+
+        return r.json()
