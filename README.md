@@ -2,7 +2,7 @@
 
 This is a Python client for the NLP Cloud API: https://docs.nlpcloud.io
 
-NLP Cloud serves high performance pre-trained models for NER, sentiment-analysis, classification, summarization, question answering, and POS tagging, ready for production, served through a REST API. 
+NLP Cloud serves high performance pre-trained models for NER, sentiment-analysis, classification, summarization, question answering, and POS tagging, ready for production, served through a REST API.
 
 Pre-trained models are the spaCy models and some transformers-based models from Hugging Face. You can also deploy your own spaCy models.
 
