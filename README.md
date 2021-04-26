@@ -4,7 +4,7 @@ This is a Python client for the NLP Cloud API: https://docs.nlpcloud.io
 
 NLP Cloud serves high performance pre-trained models for NER, sentiment-analysis, classification, summarization, question answering, and POS tagging, ready for production, served through a REST API.
 
-Pre-trained models are the spaCy models and some transformers-based models from Hugging Face. You can also deploy your own spaCy models.
+Pre-trained models are the spaCy models and some transformers-based models from Hugging Face. You can also deploy your own transformers-based models, or spaCy models.
 
 If you face an issue, don't hesitate to raise it as a Github issue. Thanks!
 
@@ -67,7 +67,7 @@ A json object is returned. Here is what it could look like:
 
 Pass the model you want to use and the NLP Cloud token to the client during initialization.
 
-The model can either be a pretrained model like `en_core_web_lg`, `bart-large-mnli`... but also one of your custom spaCy models using `custom_model/<model id>` (e.g. `custom_model/2568`).
+The model can either be a pretrained model like `en_core_web_lg`, `bart-large-mnli`... but also one of your custom transformers-based models, or spaCy models, using `custom_model/<model id>` (e.g. `custom_model/2568`).
 
 Your token can be retrieved from your [NLP Cloud dashboard](https://nlpcloud.io/home/token).
 
@@ -158,7 +158,7 @@ The above command returns a JSON object.
 
 ### Library Versions Endpoint
 
-Call the `lib_versions()` method to know the versions of the libraries used behind the hood with the model (for example the spaCy version used).
+Call the `lib_versions()` method to know the versions of the libraries used behind the hood with the model (for example the PyTorch, TensorFlow, or spaCy version used).
 
 ```python
 client.lib_versions()
