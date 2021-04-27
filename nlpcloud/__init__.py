@@ -74,6 +74,18 @@ class Client:
 
         return r.json()
 
+    def translation(self, text):
+        payload = {
+            "text": text
+        }
+
+        r = requests.post(
+            "{}/{}".format(self.root_url, "translation"), json=payload, headers=self.headers)
+
+        r.raise_for_status()
+
+        return r.json()
+
     def dependencies(self, text):
         payload = {
             "text": text

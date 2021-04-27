@@ -136,6 +136,16 @@ client.summarization("<Your text to summarize>")
 
 The above command returns a JSON object.
 
+### Translation Endpoint
+
+Call the `translation()` method and pass the text you want to translate.
+
+```python
+client.translation("<Your text to translate>")
+```
+
+The above command returns a JSON object.
+
 ### Dependencies Endpoint
 
 Call the `dependencies()` method and pass the text you want to perform part of speech tagging (POS) + arcs on.
