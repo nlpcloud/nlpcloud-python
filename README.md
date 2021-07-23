@@ -146,6 +146,16 @@ client.translation("<Your text to translate>")
 
 The above command returns a JSON object.
 
+### Language Detection Endpoint
+
+Call the `langdetection()` method and pass the text you want to analyze in order to detect the languages.
+
+```python
+client.langdetection("<The text you want to analyze>")
+```
+
+The above command returns a JSON object.
+
 ### Dependencies Endpoint
 
 Call the `dependencies()` method and pass the text you want to perform part of speech tagging (POS) + arcs on.
