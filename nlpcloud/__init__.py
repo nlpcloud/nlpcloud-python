@@ -5,11 +5,14 @@ API_VERSION = "v1"
 
 
 class Client:
-    def __init__(self, model, token):
+    def __init__(self, model, token, gpu=False):
         self.headers = {
             "Authorization": "Token " + token,
         }
-        self.root_url = "{}/{}/{}".format(BASE_URL, API_VERSION, model)
+        if gpu:
+            self.root_url = "{}/{}/gpu/{}".format(BASE_URL, API_VERSION, model)
+        else:
+            self.root_url = "{}/{}/{}".format(BASE_URL, API_VERSION, model)
 
     def entities(self, text):
         payload = {
