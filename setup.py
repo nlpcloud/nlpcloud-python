@@ -11,5 +11,6 @@ setup(
     license='MIT',
     keywords=['api', 'NLP', 'spacy', 'Hugging Face', 'deep learning', 'machine learning',
               'data science', 'nlpcloud'],
-    url='https://github.com/nlpcloud/nlpcloud-python'
+    url='https://github.com/nlpcloud/nlpcloud-python',
+    install_requires=['requests']
 )
