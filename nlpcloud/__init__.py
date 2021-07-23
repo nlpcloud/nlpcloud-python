@@ -98,6 +98,18 @@ class Client:
 
         return r.json()
 
+    def tokens(self, text):
+        payload = {
+            "text": text
+        }
+
+        r = requests.post(
+            "{}/{}".format(self.root_url, "tokens"), json=payload, headers=self.headers)
+
+        r.raise_for_status()
+
+        return r.json()
+
     def dependencies(self, text):
         payload = {
             "text": text

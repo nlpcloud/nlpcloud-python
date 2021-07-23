@@ -156,6 +156,16 @@ client.langdetection("<The text you want to analyze>")
 
 The above command returns a JSON object.
 
+### Tokenization Endpoint
+
+Call the `tokens()` method and pass the text you want to tokenize.
+
+```python
+client.tokens("<Your block of text>")
+```
+
+The above command returns a JSON object.
+
 ### Dependencies Endpoint
 
 Call the `dependencies()` method and pass the text you want to perform part of speech tagging (POS) + arcs on.
