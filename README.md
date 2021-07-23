@@ -126,9 +126,7 @@ The above command returns a JSON object.
 
 ### Summarization Endpoint
 
-Call the `summarization()` method and pass the text you want to summarize.
-
-**Note that your block of text should not exceed 1024 words, otherwise you will get an error. Also note that this model works best for blocks of text between 56 and 142 words.**
+Call the `summarization()` method and pass the text you want to summarize.Remo
 
 ```python
 client.summarization("<Your text to summarize>")
