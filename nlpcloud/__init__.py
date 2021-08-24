@@ -41,6 +41,30 @@ class Client:
 
         return r.json()
 
+    def generation(self, text, min_length=None, max_length=None, length_no_input=None,
+                   end_sequence=None, remove_input=None, top_k=None, top_p=None,
+                   temperature=None, repetition_penalty=None, length_penalty=None):
+        payload = {
+            "text": text,
+            "min_length": min_length,
+            "max_length": max_length,
+            "length_no_input": length_no_input,
+            "end_sequence": end_sequence,
+            "remove_input": remove_input,
+            "top_k": top_k,
+            "top_p": top_p,
+            "temperature": temperature,
+            "repetition_penalty": repetition_penalty,
+            "length_penalty": length_penalty
+        }
+
+        r = requests.post(
+            "{}/{}".format(self.root_url, "generation"), json=payload, headers=self.headers)
+
+        r.raise_for_status()
+
+        return r.json()
+
     def sentiment(self, text):
         payload = {
             "text": text
