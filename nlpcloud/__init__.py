@@ -8,7 +8,7 @@ class Client:
     def __init__(self, model, token, gpu=False):
         self.headers = {
             "Authorization": "Token " + token,
-            "User-Agent": "nlploud-python-client"
+            "User-Agent": "nlpcloud-python-client"
         }
         if gpu:
             self.root_url = "{}/{}/gpu/{}".format(BASE_URL, API_VERSION, model)
