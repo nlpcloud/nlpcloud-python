@@ -111,7 +111,7 @@ The above command returns a JSON object.
 
 ### Text Generation Endpoint
 
-Call the `generation()` method and pass 3 arguments:
+Call the `generation()` method and pass the following arguments:
 
 1. The block of text that starts the generated text, as a string. 1200 tokens maximum.
 1. (Optional) `min_length`: The minimum number of tokens that the generated text should contain, as an integer. The size of the generated text should not exceed 256 tokens on a CPU plan and 1024 tokens on GPU plan. If `length_no_input` is false, the size of the generated text is the difference between `min_length` and the length of your input text. If `length_no_input` is true, the size of the generated text simply is `min_length`. Defaults to 10.
