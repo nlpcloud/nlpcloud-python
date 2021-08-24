@@ -97,14 +97,36 @@ The above command returns a JSON object.
 
 ### Classification Endpoint
 
-Call the `classification()` method and pass 3 arguments:
+Call the `classification()` method and pass the following arguments:
 
 1. The text you want to classify, as a string
 1. The candidate labels for your text, as a list of strings
-1. Whether the classification should be multi-class or not, as a boolean
+1. (Optional) `multi_class`: Whether the classification should be multi-class or not, as a boolean. Defaults to true.
 
 ```python
-client.classification("<Your block of text>", ["label 1", "label 2", "..."], True|False)
+client.classification("<Your block of text>", ["label 1", "label 2", "..."])
+```
+
+The above command returns a JSON object.
+
+### Text Generation Endpoint
+
+Call the `generation()` method and pass 3 arguments:
+
+1. The block of text that starts the generated text, as a string. 1200 tokens maximum.
+1. (Optional) `min_length`: The minimum number of tokens that the generated text should contain, as an integer. The size of the generated text should not exceed 256 tokens on a CPU plan and 1024 tokens on GPU plan. If `length_no_input` is false, the size of the generated text is the difference between `min_length` and the length of your input text. If `length_no_input` is true, the size of the generated text simply is `min_length`. Defaults to 10.
+1. (Optional) `max_length`: The maximum number of tokens that the generated text should contain, as an integer. The size of the generated text should not exceed 256 tokens on a CPU plan and 1024 tokens on GPU plan. If `length_no_input` is false, the size of the generated text is the difference between `max_length` and the length of your input text. If `length_no_input` is true, the size of the generated text simply is `max_length`. Defaults to 50.
+1. (Optional) `length_no_input`: Whether `min_length` and `max_length` should not include the length of the input text, as a boolean. If false, `min_length` and `max_length` include the length of the input text. If true, min_length and `max_length` don't include the length of the input text. Defaults to false.
+1. (Optional) `end_sequence`: A specific token that should be the end of the generated sequence, as a string. For example if could be `.` or `\n` or `###` or anything else below 10 characters.
+1. (Optional) `remove_input`: Whether you want to remove the input text form the result, as a boolean. Defaults to false.
+1. (Optional) `top_k`: The number of highest probability vocabulary tokens to keep for top-k-filtering, as an integer. Maximum 1000 tokens. Defaults to 0.
+1. (Optional) `top_p`: If set to float < 1, only the most probable tokens with probabilities that add up to top_p or higher are kept for generation. This is a float. Should be between 0 and 1. Defaults to 0.7.
+1. (Optional) `temperature`: The value used to module the next token probabilities, as a float. Should be between 0 and 1. Defaults to 1.
+1. (Optional) `repetition_penalty`: The parameter for repetition penalty, as a float. 1.0 means no penalty. Defaults to 1.0.
+1. (Optional) `length_penalty`: Exponential penalty to the length, as a float. 1.0 means no penalty. Set to values < 1.0 in order to encourage the model to generate shorter sequences, or to a value > 1.0 in order to encourage the model to produce longer sequences. Defaults to 1.0.
+
+```python
+client.generation("<Your input text>")
 ```
 
 The above command returns a JSON object.
