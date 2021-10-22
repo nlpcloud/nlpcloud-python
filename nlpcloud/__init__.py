@@ -1,4 +1,5 @@
 import requests
+from requests.models import HTTPError
 
 BASE_URL = "https://api.nlpcloud.io"
 API_VERSION = "v1"
@@ -23,7 +24,10 @@ class Client:
         r = requests.post(
             "{}/{}".format(self.root_url, "entities"), json=payload, headers=self.headers)
 
-        r.raise_for_status()
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            raise HTTPError(str(err) + ": " + str(r.text))
 
         return r.json()
 
@@ -37,7 +41,10 @@ class Client:
         r = requests.post(
             "{}/{}".format(self.root_url, "classification"), json=payload, headers=self.headers)
 
-        r.raise_for_status()
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            raise HTTPError(str(err) + ": " + str(r.text))
 
         return r.json()
 
@@ -68,7 +75,10 @@ class Client:
         r = requests.post(
             "{}/{}".format(self.root_url, "generation"), json=payload, headers=self.headers)
 
-        r.raise_for_status()
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            raise HTTPError(str(err) + ": " + str(r.text))
 
         return r.json()
 
@@ -80,7 +90,10 @@ class Client:
         r = requests.post(
             "{}/{}".format(self.root_url, "sentiment"), json=payload, headers=self.headers)
 
-        r.raise_for_status()
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            raise HTTPError(str(err) + ": " + str(r.text))
 
         return r.json()
 
@@ -93,7 +106,10 @@ class Client:
         r = requests.post(
             "{}/{}".format(self.root_url, "question"), json=payload, headers=self.headers)
 
-        r.raise_for_status()
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            raise HTTPError(str(err) + ": " + str(r.text))
 
         return r.json()
 
@@ -105,7 +121,10 @@ class Client:
         r = requests.post(
             "{}/{}".format(self.root_url, "summarization"), json=payload, headers=self.headers)
 
-        r.raise_for_status()
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            raise HTTPError(str(err) + ": " + str(r.text))
 
         return r.json()
 
@@ -117,7 +136,10 @@ class Client:
         r = requests.post(
             "{}/{}".format(self.root_url, "translation"), json=payload, headers=self.headers)
 
-        r.raise_for_status()
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            raise HTTPError(str(err) + ": " + str(r.text))
 
         return r.json()
 
@@ -129,7 +151,10 @@ class Client:
         r = requests.post(
             "{}/{}".format(self.root_url, "langdetection"), json=payload, headers=self.headers)
 
-        r.raise_for_status()
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            raise HTTPError(str(err) + ": " + str(r.text))
 
         return r.json()
 
@@ -141,7 +166,10 @@ class Client:
         r = requests.post(
             "{}/{}".format(self.root_url, "tokens"), json=payload, headers=self.headers)
 
-        r.raise_for_status()
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            raise HTTPError(str(err) + ": " + str(r.text))
 
         return r.json()
 
@@ -153,7 +181,10 @@ class Client:
         r = requests.post(
             "{}/{}".format(self.root_url, "dependencies"), json=payload, headers=self.headers)
 
-        r.raise_for_status()
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            raise HTTPError(str(err) + ": " + str(r.text))
 
         return r.json()
 
@@ -165,7 +196,10 @@ class Client:
         r = requests.post(
             "{}/{}".format(self.root_url, "sentence-dependencies"), json=payload, headers=self.headers)
 
-        r.raise_for_status()
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            raise HTTPError(str(err) + ": " + str(r.text))
 
         return r.json()
 
@@ -173,6 +207,9 @@ class Client:
         r = requests.get(
             "{}/{}".format(self.root_url, "versions"), headers=self.headers)
 
-        r.raise_for_status()
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            raise HTTPError(str(err) + ": " + str(r.text))
 
         return r.json()
