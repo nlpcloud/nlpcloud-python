@@ -27,7 +27,10 @@ class Client:
         try:
             r.raise_for_status()
         except HTTPError as err:
-            raise HTTPError(str(err) + ": " + str(r.text))
+            if "<!DOCTYPE html>" in r.text:
+                raise HTTPError(str(err))
+            else:
+                raise HTTPError(str(err) + ": " + str(r.text))
 
         return r.json()
 
@@ -44,7 +47,10 @@ class Client:
         try:
             r.raise_for_status()
         except HTTPError as err:
-            raise HTTPError(str(err) + ": " + str(r.text))
+            if "<!DOCTYPE html>" in r.text:
+                raise HTTPError(str(err))
+            else:
+                raise HTTPError(str(err) + ": " + str(r.text))
 
         return r.json()
 
@@ -78,7 +84,10 @@ class Client:
         try:
             r.raise_for_status()
         except HTTPError as err:
-            raise HTTPError(str(err) + ": " + str(r.text))
+            if "<!DOCTYPE html>" in r.text:
+                raise HTTPError(str(err))
+            else:
+                raise HTTPError(str(err) + ": " + str(r.text))
 
         return r.json()
 
@@ -109,7 +118,10 @@ class Client:
         try:
             r.raise_for_status()
         except HTTPError as err:
-            raise HTTPError(str(err) + ": " + str(r.text))
+            if "<!DOCTYPE html>" in r.text:
+                raise HTTPError(str(err))
+            else:
+                raise HTTPError(str(err) + ": " + str(r.text))
 
         return r.json()
 
@@ -124,7 +136,10 @@ class Client:
         try:
             r.raise_for_status()
         except HTTPError as err:
-            raise HTTPError(str(err) + ": " + str(r.text))
+            if "<!DOCTYPE html>" in r.text:
+                raise HTTPError(str(err))
+            else:
+                raise HTTPError(str(err) + ": " + str(r.text))
 
         return r.json()
 
@@ -139,7 +154,10 @@ class Client:
         try:
             r.raise_for_status()
         except HTTPError as err:
-            raise HTTPError(str(err) + ": " + str(r.text))
+            if "<!DOCTYPE html>" in r.text:
+                raise HTTPError(str(err))
+            else:
+                raise HTTPError(str(err) + ": " + str(r.text))
 
         return r.json()
 
@@ -154,7 +172,10 @@ class Client:
         try:
             r.raise_for_status()
         except HTTPError as err:
-            raise HTTPError(str(err) + ": " + str(r.text))
+            if "<!DOCTYPE html>" in r.text:
+                raise HTTPError(str(err))
+            else:
+                raise HTTPError(str(err) + ": " + str(r.text))
 
         return r.json()
 
@@ -169,7 +190,10 @@ class Client:
         try:
             r.raise_for_status()
         except HTTPError as err:
-            raise HTTPError(str(err) + ": " + str(r.text))
+            if "<!DOCTYPE html>" in r.text:
+                raise HTTPError(str(err))
+            else:
+                raise HTTPError(str(err) + ": " + str(r.text))
 
         return r.json()
 
@@ -184,7 +208,10 @@ class Client:
         try:
             r.raise_for_status()
         except HTTPError as err:
-            raise HTTPError(str(err) + ": " + str(r.text))
+            if "<!DOCTYPE html>" in r.text:
+                raise HTTPError(str(err))
+            else:
+                raise HTTPError(str(err) + ": " + str(r.text))
 
         return r.json()
 
@@ -199,7 +226,10 @@ class Client:
         try:
             r.raise_for_status()
         except HTTPError as err:
-            raise HTTPError(str(err) + ": " + str(r.text))
+            if "<!DOCTYPE html>" in r.text:
+                raise HTTPError(str(err))
+            else:
+                raise HTTPError(str(err) + ": " + str(r.text))
 
         return r.json()
 
@@ -210,6 +240,9 @@ class Client:
         try:
             r.raise_for_status()
         except HTTPError as err:
-            raise HTTPError(str(err) + ": " + str(r.text))
+            if "<!DOCTYPE html>" in r.text:
+                raise HTTPError(str(err))
+            else:
+                raise HTTPError(str(err) + ": " + str(r.text))
 
         return r.json()
