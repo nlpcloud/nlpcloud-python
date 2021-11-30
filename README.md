@@ -1,10 +1,10 @@
 # Python Client For NLP Cloud
 
-This is a Python client for the NLP Cloud API: https://docs.nlpcloud.io
+This is the Python client for the [NLP Cloud](https://nlpcloud.io) API. See the [documentation](https://docs.nlpcloud.io) for more details.
 
-NLP Cloud serves high performance pre-trained for NER, sentiment-analysis, classification, summarization, text generation, question answering, machine translation, language detection, tokenization, POS tagging, and dependency parsing. It is ready for production, served through a REST API.
+NLP Cloud serves high performance pre-trained for NER, sentiment-analysis, classification, summarization, text generation, question answering, machine translation, language detection, tokenization, lemmatization, POS tagging, and dependency parsing. It is ready for production, served through a REST API.
 
-Pre-trained models are the spaCy models and some transformers-based models from Hugging Face. You can also deploy your own transformers-based models, or spaCy models.
+You can either use the NLP Cloud pre-trained models, fine-tune your own models, or deploy your own models.
 
 If you face an issue, don't hesitate to raise it as a Github issue. Thanks!
 
