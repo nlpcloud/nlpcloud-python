@@ -67,7 +67,7 @@ A json object is returned. Here is what it could look like:
 
 Pass the model you want to use and the NLP Cloud token to the client during initialization.
 
-The model can either be a pretrained model like `en_core_web_lg`, `bart-large-mnli`... but also one of your custom transformers-based models, or spaCy models, using `custom_model/<model id>` (e.g. `custom_model/2568`). See the documentation for a [comprehensive list of all the models available](https://docs.nlpcloud.io/#models-list).
+The model can either be a pretrained model like `en_core_web_lg`, `bart-large-mnli`... but also one of your custom models, using `custom_model/<model id>` (e.g. `custom_model/2568`). See the documentation for a [comprehensive list of all the models available](https://docs.nlpcloud.io/#models-list).
 
 Your token can be retrieved from your [NLP Cloud dashboard](https://nlpcloud.io/home/token).
 
