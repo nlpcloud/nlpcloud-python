@@ -6,13 +6,19 @@ API_VERSION = "v1"
 
 
 class Client:
-    def __init__(self, model, token, gpu=False):
+    def __init__(self, model, token, gpu=False, lang=""):
         self.headers = {
             "Authorization": "Token " + token,
             "User-Agent": "nlpcloud-python-client"
         }
-        if gpu:
+        if gpu and lang:
+            self.root_url = "{}/{}/gpu/{}/{}".format(
+                BASE_URL, API_VERSION, lang, model)
+        elif gpu and not lang:
             self.root_url = "{}/{}/gpu/{}".format(BASE_URL, API_VERSION, model)
+        elif not gpu and lang:
+            self.root_url = "{}/{}/{}/{}".format(BASE_URL,
+                                                 API_VERSION, lang, model)
         else:
             self.root_url = "{}/{}/{}".format(BASE_URL, API_VERSION, model)
 
