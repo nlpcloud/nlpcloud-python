@@ -126,6 +126,7 @@ Call the `generation()` method and pass the following arguments:
 1. (Optional) `max_length`: The maximum number of tokens that the generated text should contain, as an integer. The size of the generated text should not exceed 256 tokens on a CPU plan and 1024 tokens on GPU plan. If `length_no_input` is false, the size of the generated text is the difference between `max_length` and the length of your input text. If `length_no_input` is true, the size of the generated text simply is `max_length`. Defaults to 50.
 1. (Optional) `length_no_input`: Whether `min_length` and `max_length` should not include the length of the input text, as a boolean. If false, `min_length` and `max_length` include the length of the input text. If true, min_length and `max_length` don't include the length of the input text. Defaults to false.
 1. (Optional) `end_sequence`: A specific token that should be the end of the generated sequence, as a string. For example if could be `.` or `\n` or `###` or anything else below 10 characters.
+1. (Optional) `remove_end_input`: Whether you want to remove the end sequence form the result, as a boolean. Defaults to false.
 1. (Optional) `remove_input`: Whether you want to remove the input text form the result, as a boolean. Defaults to false.
 1. (Optional) `do_sample`: Whether or not to use sampling ; use greedy decoding otherwise, as a boolean. Defaults to true.
 1. (Optional) `num_beams`: Number of beams for beam search. 1 means no beam search. This is an integer. Defaults to 1.

@@ -63,7 +63,7 @@ class Client:
     def generation(self, text, min_length=None, max_length=None, length_no_input=None,
                    end_sequence=None, remove_input=None, do_sample=None, num_beams=None, early_stopping=None,
                    no_repeat_ngram_size=None, num_return_sequences=None, top_k=None, top_p=None,
-                   temperature=None, repetition_penalty=None, length_penalty=None, bad_words=None):
+                   temperature=None, repetition_penalty=None, length_penalty=None, bad_words=None, remove_end_sequence=None):
         payload = {
             "text": text,
             "min_length": min_length,
@@ -81,7 +81,8 @@ class Client:
             "temperature": temperature,
             "repetition_penalty": repetition_penalty,
             "length_penalty": length_penalty,
-            "bad_words": bad_words
+            "bad_words": bad_words,
+            "remove_end_sequence": remove_end_sequence
         }
 
         r = requests.post(
