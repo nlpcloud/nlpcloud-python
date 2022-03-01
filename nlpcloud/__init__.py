@@ -240,6 +240,42 @@ class Client:
 
         return r.json()
 
+    def semantic_similarity(self, sentences):
+        payload = {
+            "sentences": sentences
+        }
+
+        r = requests.post(
+            "{}/{}".format(self.root_url, "semantic-similarity"), json=payload, headers=self.headers)
+
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            if "<!DOCTYPE html>" in r.text:
+                raise HTTPError(str(err))
+            else:
+                raise HTTPError(str(err) + ": " + str(r.text))
+
+        return r.json()
+
+    def embeddings(self, sentences):
+        payload = {
+            "sentences": sentences
+        }
+
+        r = requests.post(
+            "{}/{}".format(self.root_url, "embeddings"), json=payload, headers=self.headers)
+
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            if "<!DOCTYPE html>" in r.text:
+                raise HTTPError(str(err))
+            else:
+                raise HTTPError(str(err) + ": " + str(r.text))
+
+        return r.json()
+
     def lib_versions(self):
         r = requests.get(
             "{}/{}".format(self.root_url, "versions"), headers=self.headers)
