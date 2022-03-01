@@ -199,6 +199,16 @@ client.langdetection("<The text you want to analyze>")
 
 The above command returns a JSON object.
 
+### Semantic Similarity Endpoint
+
+Call the `semantic_similarity()` method and pass a list of blocks of text that you want to evaluate.
+
+```python
+client.semantic_similarity(["<Text 1>", "<Text 2>", "<Tex 3>"], ...)
+```
+
+The above command returns a JSON object.
+
 ### Tokenization Endpoint
 
 Call the `tokens()` method and pass the text you want to tokenize.
@@ -221,10 +231,20 @@ The above command returns a JSON object.
 
 ### Sentence Dependencies Endpoint
 
-Call the `sentence_dependencies()` method and pass a block of text made up of several sentencies you want to perform POS + arcs on.
+Call the `sentence_dependencies()` method and pass a block of text made up of several sentences you want to perform POS + arcs on.
 
 ```python
 client.sentence_dependencies("<Your block of text>")
+```
+
+The above command returns a JSON object.
+
+### Embeddings Endpoint
+
+Call the `embeddings()` method and pass a list of blocks of text that you want to extract embeddings from.
+
+```python
+client.embeddings(["<Text 1>", "<Text 2>", "<Tex 3>"], ...)
 ```
 
 The above command returns a JSON object.
