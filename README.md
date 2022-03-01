@@ -201,10 +201,10 @@ The above command returns a JSON object.
 
 ### Semantic Similarity Endpoint
 
-Call the `semantic_similarity()` method and pass a list of blocks of text that you want to evaluate.
+Call the `semantic_similarity()` method and pass a list made up of 2 blocks of text that you want to compare.
 
 ```python
-client.semantic_similarity(["<Text 1>", "<Text 2>", "<Tex 3>"], ...)
+client.semantic_similarity(["<Block of text 1>", "<Block of text 2>")
 ```
 
 The above command returns a JSON object.
