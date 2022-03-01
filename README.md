@@ -244,7 +244,7 @@ The above command returns a JSON object.
 Call the `embeddings()` method and pass a list of blocks of text that you want to extract embeddings from.
 
 ```python
-client.embeddings(["<Text 1>", "<Text 2>", "<Tex 3>"], ...)
+client.embeddings(["<Text 1>", "<Text 2>", "<Text 3>", ...])
 ```
 
 The above command returns a JSON object.
