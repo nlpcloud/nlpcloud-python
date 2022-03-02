@@ -40,7 +40,7 @@ class Client:
 
         return r.json()
 
-    def classification(self, text, labels, multi_class=None):
+    def classification(self, text, labels=None, multi_class=None):
         payload = {
             "text": text,
             "labels": labels,
