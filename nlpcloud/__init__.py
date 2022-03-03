@@ -113,10 +113,10 @@ class Client:
 
         return r.json()
 
-    def question(self, context, question):
+    def question(self, question, context=None):
         payload = {
-            "context": context,
-            "question": question
+            "question": question,
+            "context": context
         }
 
         r = requests.post(
