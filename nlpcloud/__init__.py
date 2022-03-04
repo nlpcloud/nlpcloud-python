@@ -22,9 +22,10 @@ class Client:
         else:
             self.root_url = "{}/{}/{}".format(BASE_URL, API_VERSION, model)
 
-    def entities(self, text):
+    def entities(self, text, searched_entity=None):
         payload = {
-            "text": text
+            "text": text,
+            "searched_entity": searched_entity
         }
 
         r = requests.post(

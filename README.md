@@ -164,7 +164,7 @@ Call the `question()` method and pass the following:
 1. Your question
 
 ```python
-client.question("<Your context>", "<Your question>")
+client.question("<Your question>", "<Your context>")
 ```
 
 The above command returns a JSON object.
