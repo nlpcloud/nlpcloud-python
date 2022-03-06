@@ -151,6 +151,24 @@ class Client:
 
         return r.json()
 
+    def paraphrasing(self, text):
+        payload = {
+            "text": text
+        }
+
+        r = requests.post(
+            "{}/{}".format(self.root_url, "paraphrasing"), json=payload, headers=self.headers)
+
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            if "<!DOCTYPE html>" in r.text:
+                raise HTTPError(str(err))
+            else:
+                raise HTTPError(str(err) + ": " + str(r.text))
+
+        return r.json()
+
     def translation(self, text):
         payload = {
             "text": text

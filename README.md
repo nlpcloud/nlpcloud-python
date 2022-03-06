@@ -171,10 +171,20 @@ The above command returns a JSON object.
 
 ### Summarization Endpoint
 
-Call the `summarization()` method and pass the text you want to summarize.Remo
+Call the `summarization()` method and pass the text you want to summarize.
 
 ```python
 client.summarization("<Your text to summarize>")
+```
+
+The above command returns a JSON object.
+
+### Paraphrasing Endpoint
+
+Call the `paraphrasing()` method and pass the text you want to paraphrase.
+
+```python
+client.paraphrasing("<Your text to paraphrase>")
 ```
 
 The above command returns a JSON object.
