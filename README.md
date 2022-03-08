@@ -93,12 +93,22 @@ import nlpcloud
 client = nlpcloud.Client("<model>", "<your token>", lang="<your language code>")
 ```
 
-### Entities Endpoint
+### Product Description and Ad Generation
 
-Call the `entities()` method and pass the text you want to perform named entity recognition (NER) on.
+Call the `ad_generation()` method and pass a list of keywords you want to generate you product description or ad from.
 
 ```python
-client.entities("<Your block of text>")
+client.ad_generation(["Keyword 1", "Keyword 2", "Keyword 3", ...])
+```
+
+The above command returns a JSON object.
+
+### Chatbot
+
+Call the `chatbot()` method and pass your input. As an option, you can also pass a conversation history that is a list of dictionnaries. Each dictionnary is made of an `input` and a `response` from the chatbot.
+
+```python
+client.chatbot("Your input", [{"input":"input 1","response":"response 1"}, {"input":"input 2","response":"response 2"}, ...])
 ```
 
 The above command returns a JSON object.
@@ -117,7 +127,37 @@ client.classification("<Your block of text>", ["label 1", "label 2", "..."])
 
 The above command returns a JSON object.
 
-### Text Generation Endpoint
+### Dependencies Endpoint
+
+Call the `dependencies()` method and pass the text you want to perform part of speech tagging (POS) + arcs on.
+
+```python
+client.dependencies("<Your block of text>")
+```
+
+The above command returns a JSON object.
+
+### Embeddings Endpoint
+
+Call the `embeddings()` method and pass a list of blocks of text that you want to extract embeddings from.
+
+```python
+client.embeddings(["<Text 1>", "<Text 2>", "<Text 3>", ...])
+```
+
+The above command returns a JSON object.
+
+### Entities Endpoint
+
+Call the `entities()` method and pass the text you want to perform named entity recognition (NER) on.
+
+```python
+client.entities("<Your block of text>")
+```
+
+The above command returns a JSON object.
+
+### Generation Endpoint
 
 Call the `generation()` method and pass the following arguments:
 
@@ -146,12 +186,62 @@ client.generation("<Your input text>")
 
 The above command returns a JSON object.
 
-### Sentiment Analysis Endpoint
+### Grammar and Spelling Correction Endpoint
 
-Call the `sentiment()` method and pass the text you want to analyze the sentiment of:
+Call the `gs_correction()` method and pass the text you want correct:
 
 ```python
-client.sentiment("<Your block of text>")
+client.gs_correction("<Your block of text>")
+```
+
+The above command returns a JSON object.
+
+### Intent Classification Endpoint
+
+Call the `intent_classification()` method and pass the text you want to extract intents from:
+
+```python
+client.intent_classification("<Your block of text>")
+```
+
+The above command returns a JSON object.
+
+### Keywords and Keyphrases Extraction Endpoint
+
+Call the `kw_kp_extraction()` method and pass the text you want to extract keywords and keyphrases from:
+
+```python
+client.kw_kp_extraction("<Your block of text>")
+```
+
+The above command returns a JSON object.
+
+### Language Detection Endpoint
+
+Call the `langdetection()` method and pass the text you want to analyze in order to detect the languages.
+
+```python
+client.langdetection("<The text you want to analyze>")
+```
+
+The above command returns a JSON object.
+
+### Library Versions Endpoint
+
+Call the `lib_versions()` method to know the versions of the libraries used behind the hood with the model (for example the PyTorch, TensorFlow, or spaCy version used).
+
+```python
+client.lib_versions()
+```
+
+The above command returns a JSON object.
+
+### Paraphrasing Endpoint
+
+Call the `paraphrasing()` method and pass the text you want to paraphrase.
+
+```python
+client.paraphrasing("<Your text to paraphrase>")
 ```
 
 The above command returns a JSON object.
@@ -169,72 +259,12 @@ client.question("<Your question>", "<Your context>")
 
 The above command returns a JSON object.
 
-### Summarization Endpoint
-
-Call the `summarization()` method and pass the text you want to summarize.
-
-```python
-client.summarization("<Your text to summarize>")
-```
-
-The above command returns a JSON object.
-
-### Paraphrasing Endpoint
-
-Call the `paraphrasing()` method and pass the text you want to paraphrase.
-
-```python
-client.paraphrasing("<Your text to paraphrase>")
-```
-
-The above command returns a JSON object.
-
-### Translation Endpoint
-
-Call the `translation()` method and pass the text you want to translate.
-
-```python
-client.translation("<Your text to translate>")
-```
-
-The above command returns a JSON object.
-
-### Language Detection Endpoint
-
-Call the `langdetection()` method and pass the text you want to analyze in order to detect the languages.
-
-```python
-client.langdetection("<The text you want to analyze>")
-```
-
-The above command returns a JSON object.
-
 ### Semantic Similarity Endpoint
 
 Call the `semantic_similarity()` method and pass a list made up of 2 blocks of text that you want to compare.
 
 ```python
 client.semantic_similarity(["<Block of text 1>", "<Block of text 2>"])
-```
-
-The above command returns a JSON object.
-
-### Tokenization Endpoint
-
-Call the `tokens()` method and pass the text you want to tokenize.
-
-```python
-client.tokens("<Your block of text>")
-```
-
-The above command returns a JSON object.
-
-### Dependencies Endpoint
-
-Call the `dependencies()` method and pass the text you want to perform part of speech tagging (POS) + arcs on.
-
-```python
-client.dependencies("<Your block of text>")
 ```
 
 The above command returns a JSON object.
@@ -249,22 +279,42 @@ client.sentence_dependencies("<Your block of text>")
 
 The above command returns a JSON object.
 
-### Embeddings Endpoint
+### Sentiment Analysis Endpoint
 
-Call the `embeddings()` method and pass a list of blocks of text that you want to extract embeddings from.
+Call the `sentiment()` method and pass the text you want to analyze the sentiment of:
 
 ```python
-client.embeddings(["<Text 1>", "<Text 2>", "<Text 3>", ...])
+client.sentiment("<Your block of text>")
 ```
 
 The above command returns a JSON object.
 
-### Library Versions Endpoint
+### Summarization Endpoint
 
-Call the `lib_versions()` method to know the versions of the libraries used behind the hood with the model (for example the PyTorch, TensorFlow, or spaCy version used).
+Call the `summarization()` method and pass the text you want to summarize.
 
 ```python
-client.lib_versions()
+client.summarization("<Your text to summarize>")
+```
+
+The above command returns a JSON object.
+
+### Tokenization Endpoint
+
+Call the `tokens()` method and pass the text you want to tokenize.
+
+```python
+client.tokens("<Your block of text>")
+```
+
+The above command returns a JSON object.
+
+### Translation Endpoint
+
+Call the `translation()` method and pass the text you want to translate.
+
+```python
+client.translation("<Your text to translate>")
 ```
 
 The above command returns a JSON object.

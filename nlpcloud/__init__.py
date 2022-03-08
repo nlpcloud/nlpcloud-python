@@ -97,6 +97,24 @@ class Client:
 
         return r.json()
 
+    def embeddings(self, sentences):
+        payload = {
+            "sentences": sentences
+        }
+
+        r = requests.post(
+            "{}/{}".format(self.root_url, "embeddings"), json=payload, headers=self.headers)
+
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            if "<!DOCTYPE html>" in r.text:
+                raise HTTPError(str(err))
+
+            raise HTTPError(str(err) + ": " + str(r.text))
+
+        return r.json()
+
     def entities(self, text, searched_entity=None):
         payload = {
             "text": text,
@@ -337,24 +355,6 @@ class Client:
 
         return r.json()
 
-    def translation(self, text):
-        payload = {
-            "text": text
-        }
-
-        r = requests.post(
-            "{}/{}".format(self.root_url, "translation"), json=payload, headers=self.headers)
-
-        try:
-            r.raise_for_status()
-        except HTTPError as err:
-            if "<!DOCTYPE html>" in r.text:
-                raise HTTPError(str(err))
-
-            raise HTTPError(str(err) + ": " + str(r.text))
-
-        return r.json()
-
     def tokens(self, text):
         payload = {
             "text": text
@@ -373,13 +373,13 @@ class Client:
 
         return r.json()
 
-    def embeddings(self, sentences):
+    def translation(self, text):
         payload = {
-            "sentences": sentences
+            "text": text
         }
 
         r = requests.post(
-            "{}/{}".format(self.root_url, "embeddings"), json=payload, headers=self.headers)
+            "{}/{}".format(self.root_url, "translation"), json=payload, headers=self.headers)
 
         try:
             r.raise_for_status()
