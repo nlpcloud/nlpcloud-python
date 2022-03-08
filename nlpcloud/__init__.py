@@ -22,22 +22,40 @@ class Client:
         else:
             self.root_url = "{}/{}/{}".format(BASE_URL, API_VERSION, model)
 
-    def entities(self, text, searched_entity=None):
+    def ad_generation(self, keywords):
         payload = {
-            "text": text,
-            "searched_entity": searched_entity
+            "keywords": keywords
         }
 
         r = requests.post(
-            "{}/{}".format(self.root_url, "entities"), json=payload, headers=self.headers)
+            "{}/{}".format(self.root_url, "ad-generation"), json=payload, headers=self.headers)
 
         try:
             r.raise_for_status()
         except HTTPError as err:
             if "<!DOCTYPE html>" in r.text:
                 raise HTTPError(str(err))
-            else:
-                raise HTTPError(str(err) + ": " + str(r.text))
+
+            raise HTTPError(str(err) + ": " + str(r.text))
+
+        return r.json()
+
+    def chatbot(self, text, history=None):
+        payload = {
+            "input": text,
+            "history": history
+        }
+
+        r = requests.post(
+            "{}/{}".format(self.root_url, "chatbot"), json=payload, headers=self.headers)
+
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            if "<!DOCTYPE html>" in r.text:
+                raise HTTPError(str(err))
+
+            raise HTTPError(str(err) + ": " + str(r.text))
 
         return r.json()
 
@@ -56,8 +74,45 @@ class Client:
         except HTTPError as err:
             if "<!DOCTYPE html>" in r.text:
                 raise HTTPError(str(err))
-            else:
-                raise HTTPError(str(err) + ": " + str(r.text))
+
+            raise HTTPError(str(err) + ": " + str(r.text))
+
+        return r.json()
+
+    def dependencies(self, text):
+        payload = {
+            "text": text
+        }
+
+        r = requests.post(
+            "{}/{}".format(self.root_url, "dependencies"), json=payload, headers=self.headers)
+
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            if "<!DOCTYPE html>" in r.text:
+                raise HTTPError(str(err))
+
+            raise HTTPError(str(err) + ": " + str(r.text))
+
+        return r.json()
+
+    def entities(self, text, searched_entity=None):
+        payload = {
+            "text": text,
+            "searched_entity": searched_entity
+        }
+
+        r = requests.post(
+            "{}/{}".format(self.root_url, "entities"), json=payload, headers=self.headers)
+
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            if "<!DOCTYPE html>" in r.text:
+                raise HTTPError(str(err))
+
+            raise HTTPError(str(err) + ": " + str(r.text))
 
         return r.json()
 
@@ -94,22 +149,102 @@ class Client:
         except HTTPError as err:
             if "<!DOCTYPE html>" in r.text:
                 raise HTTPError(str(err))
-            else:
-                raise HTTPError(str(err) + ": " + str(r.text))
+
+            raise HTTPError(str(err) + ": " + str(r.text))
 
         return r.json()
 
-    def sentiment(self, text):
+    def gs_correction(self, text):
         payload = {
             "text": text
         }
 
         r = requests.post(
-            "{}/{}".format(self.root_url, "sentiment"), json=payload, headers=self.headers)
+            "{}/{}".format(self.root_url, "gs-correction"), json=payload, headers=self.headers)
 
         try:
             r.raise_for_status()
         except HTTPError as err:
+            raise HTTPError(str(err) + ": " + str(r.text))
+
+        return r.json()
+
+    def intent_classification(self, text):
+        payload = {
+            "text": text
+        }
+
+        r = requests.post(
+            "{}/{}".format(self.root_url, "intent-classification"), json=payload, headers=self.headers)
+
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            raise HTTPError(str(err) + ": " + str(r.text))
+
+        return r.json()
+
+    def kw_kp_extraction(self, text):
+        payload = {
+            "text": text
+        }
+
+        r = requests.post(
+            "{}/{}".format(self.root_url, "kw-kp-extraction"), json=payload, headers=self.headers)
+
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            raise HTTPError(str(err) + ": " + str(r.text))
+
+        return r.json()
+
+    def langdetection(self, text):
+        payload = {
+            "text": text
+        }
+
+        r = requests.post(
+            "{}/{}".format(self.root_url, "langdetection"), json=payload, headers=self.headers)
+
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            if "<!DOCTYPE html>" in r.text:
+                raise HTTPError(str(err))
+
+            raise HTTPError(str(err) + ": " + str(r.text))
+
+        return r.json()
+
+    def lib_versions(self):
+        r = requests.get(
+            "{}/{}".format(self.root_url, "versions"), headers=self.headers)
+
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            if "<!DOCTYPE html>" in r.text:
+                raise HTTPError(str(err))
+
+            raise HTTPError(str(err) + ": " + str(r.text))
+
+        return r.json()
+
+    def paraphrasing(self, text):
+        payload = {
+            "text": text
+        }
+
+        r = requests.post(
+            "{}/{}".format(self.root_url, "paraphrasing"), json=payload, headers=self.headers)
+
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            if "<!DOCTYPE html>" in r.text:
+                raise HTTPError(str(err))
+
             raise HTTPError(str(err) + ": " + str(r.text))
 
         return r.json()
@@ -128,134 +263,8 @@ class Client:
         except HTTPError as err:
             if "<!DOCTYPE html>" in r.text:
                 raise HTTPError(str(err))
-            else:
-                raise HTTPError(str(err) + ": " + str(r.text))
 
-        return r.json()
-
-    def summarization(self, text):
-        payload = {
-            "text": text
-        }
-
-        r = requests.post(
-            "{}/{}".format(self.root_url, "summarization"), json=payload, headers=self.headers)
-
-        try:
-            r.raise_for_status()
-        except HTTPError as err:
-            if "<!DOCTYPE html>" in r.text:
-                raise HTTPError(str(err))
-            else:
-                raise HTTPError(str(err) + ": " + str(r.text))
-
-        return r.json()
-
-    def paraphrasing(self, text):
-        payload = {
-            "text": text
-        }
-
-        r = requests.post(
-            "{}/{}".format(self.root_url, "paraphrasing"), json=payload, headers=self.headers)
-
-        try:
-            r.raise_for_status()
-        except HTTPError as err:
-            if "<!DOCTYPE html>" in r.text:
-                raise HTTPError(str(err))
-            else:
-                raise HTTPError(str(err) + ": " + str(r.text))
-
-        return r.json()
-
-    def translation(self, text):
-        payload = {
-            "text": text
-        }
-
-        r = requests.post(
-            "{}/{}".format(self.root_url, "translation"), json=payload, headers=self.headers)
-
-        try:
-            r.raise_for_status()
-        except HTTPError as err:
-            if "<!DOCTYPE html>" in r.text:
-                raise HTTPError(str(err))
-            else:
-                raise HTTPError(str(err) + ": " + str(r.text))
-
-        return r.json()
-
-    def langdetection(self, text):
-        payload = {
-            "text": text
-        }
-
-        r = requests.post(
-            "{}/{}".format(self.root_url, "langdetection"), json=payload, headers=self.headers)
-
-        try:
-            r.raise_for_status()
-        except HTTPError as err:
-            if "<!DOCTYPE html>" in r.text:
-                raise HTTPError(str(err))
-            else:
-                raise HTTPError(str(err) + ": " + str(r.text))
-
-        return r.json()
-
-    def tokens(self, text):
-        payload = {
-            "text": text
-        }
-
-        r = requests.post(
-            "{}/{}".format(self.root_url, "tokens"), json=payload, headers=self.headers)
-
-        try:
-            r.raise_for_status()
-        except HTTPError as err:
-            if "<!DOCTYPE html>" in r.text:
-                raise HTTPError(str(err))
-            else:
-                raise HTTPError(str(err) + ": " + str(r.text))
-
-        return r.json()
-
-    def dependencies(self, text):
-        payload = {
-            "text": text
-        }
-
-        r = requests.post(
-            "{}/{}".format(self.root_url, "dependencies"), json=payload, headers=self.headers)
-
-        try:
-            r.raise_for_status()
-        except HTTPError as err:
-            if "<!DOCTYPE html>" in r.text:
-                raise HTTPError(str(err))
-            else:
-                raise HTTPError(str(err) + ": " + str(r.text))
-
-        return r.json()
-
-    def sentence_dependencies(self, text):
-        payload = {
-            "text": text
-        }
-
-        r = requests.post(
-            "{}/{}".format(self.root_url, "sentence-dependencies"), json=payload, headers=self.headers)
-
-        try:
-            r.raise_for_status()
-        except HTTPError as err:
-            if "<!DOCTYPE html>" in r.text:
-                raise HTTPError(str(err))
-            else:
-                raise HTTPError(str(err) + ": " + str(r.text))
+            raise HTTPError(str(err) + ": " + str(r.text))
 
         return r.json()
 
@@ -272,8 +281,95 @@ class Client:
         except HTTPError as err:
             if "<!DOCTYPE html>" in r.text:
                 raise HTTPError(str(err))
-            else:
-                raise HTTPError(str(err) + ": " + str(r.text))
+
+            raise HTTPError(str(err) + ": " + str(r.text))
+
+        return r.json()
+
+    def sentence_dependencies(self, text):
+        payload = {
+            "text": text
+        }
+
+        r = requests.post(
+            "{}/{}".format(self.root_url, "sentence-dependencies"), json=payload, headers=self.headers)
+
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            if "<!DOCTYPE html>" in r.text:
+                raise HTTPError(str(err))
+
+            raise HTTPError(str(err) + ": " + str(r.text))
+
+        return r.json()
+
+    def sentiment(self, text):
+        payload = {
+            "text": text
+        }
+
+        r = requests.post(
+            "{}/{}".format(self.root_url, "sentiment"), json=payload, headers=self.headers)
+
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            raise HTTPError(str(err) + ": " + str(r.text))
+
+        return r.json()
+
+    def summarization(self, text):
+        payload = {
+            "text": text
+        }
+
+        r = requests.post(
+            "{}/{}".format(self.root_url, "summarization"), json=payload, headers=self.headers)
+
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            if "<!DOCTYPE html>" in r.text:
+                raise HTTPError(str(err))
+
+            raise HTTPError(str(err) + ": " + str(r.text))
+
+        return r.json()
+
+    def translation(self, text):
+        payload = {
+            "text": text
+        }
+
+        r = requests.post(
+            "{}/{}".format(self.root_url, "translation"), json=payload, headers=self.headers)
+
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            if "<!DOCTYPE html>" in r.text:
+                raise HTTPError(str(err))
+
+            raise HTTPError(str(err) + ": " + str(r.text))
+
+        return r.json()
+
+    def tokens(self, text):
+        payload = {
+            "text": text
+        }
+
+        r = requests.post(
+            "{}/{}".format(self.root_url, "tokens"), json=payload, headers=self.headers)
+
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            if "<!DOCTYPE html>" in r.text:
+                raise HTTPError(str(err))
+
+            raise HTTPError(str(err) + ": " + str(r.text))
 
         return r.json()
 
@@ -290,21 +386,7 @@ class Client:
         except HTTPError as err:
             if "<!DOCTYPE html>" in r.text:
                 raise HTTPError(str(err))
-            else:
-                raise HTTPError(str(err) + ": " + str(r.text))
 
-        return r.json()
-
-    def lib_versions(self):
-        r = requests.get(
-            "{}/{}".format(self.root_url, "versions"), headers=self.headers)
-
-        try:
-            r.raise_for_status()
-        except HTTPError as err:
-            if "<!DOCTYPE html>" in r.text:
-                raise HTTPError(str(err))
-            else:
-                raise HTTPError(str(err) + ": " + str(r.text))
+            raise HTTPError(str(err) + ": " + str(r.text))
 
         return r.json()
