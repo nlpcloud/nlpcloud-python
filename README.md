@@ -83,11 +83,7 @@ A json object is returned:
 
 ```json
 {
-  "summary_text": "Over 951,000 doses were given in the past 24 hours. 
-  That's the largest number of shots given in one day since the rollout began. 
-  That number is likely to jump quickly after the federal government 
-  gave states the OK to vaccinate anyone over 65. A number of states have 
-  now opened mass vaccination sites."
+  "summary_text": "Over 951,000 doses were given in the past 24 hours. That's the largest number of shots given in one day since the  rollout began. That number is likely to jump quickly after the federal government gave states the OK to vaccinate anyone over 65. A number of states have now opened mass vaccination sites."
 }
 ```
 
