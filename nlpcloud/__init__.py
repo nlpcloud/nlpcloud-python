@@ -11,6 +11,8 @@ class Client:
             "Authorization": "Token " + token,
             "User-Agent": "nlpcloud-python-client"
         }
+        if lang == "en":
+            lang = ""
         if gpu and lang:
             self.root_url = "{}/{}/gpu/{}/{}".format(
                 BASE_URL, API_VERSION, lang, model)
