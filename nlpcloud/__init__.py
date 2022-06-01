@@ -375,9 +375,11 @@ class Client:
 
         return r.json()
 
-    def translation(self, text):
+    def translation(self, text, source, target):
         payload = {
-            "text": text
+            "text": text,
+            "source": source,
+            "target": target
         }
 
         r = requests.post(
