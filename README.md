@@ -141,10 +141,10 @@ The above command returns a JSON object.
 
 ### Chatbot Endpoint
 
-Call the `chatbot()` method and pass your input. As an option, you can also pass a conversation history that is a list of dictionnaries. Each dictionnary is made of an `input` and a `response` from the chatbot.
+Call the `chatbot()` method and pass your input. As an option, you can also pass a context and conversation history that is a list of dictionnaries. Each dictionnary is made of an `input` and a `response` from the chatbot.
 
 ```python
-client.chatbot("Your input", [{"input":"input 1","response":"response 1"}, {"input":"input 2","response":"response 2"}, ...])
+client.chatbot("Your input", "You context", [{"input":"input 1","response":"response 1"}, {"input":"input 2","response":"response 2"}, ...])
 ```
 
 The above command returns a JSON object.

@@ -57,9 +57,10 @@ class Client:
 
         return r.json()
 
-    def chatbot(self, text, history=None):
+    def chatbot(self, text, context=None, history=None):
         payload = {
             "input": text,
+            "context": context,
             "history": history
         }
 
