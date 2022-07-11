@@ -42,6 +42,21 @@ class Client:
 
         return r.json()
 
+    def article_generation(self, title):
+        payload = {
+            "title": title
+        }
+
+        r = requests.post(
+            "{}/{}".format(self.root_url, "article-generation"), json=payload, headers=self.headers)
+
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            raise HTTPError(str(err) + ": " + str(r.text))
+
+        return r.json()
+
     def chatbot(self, text, history=None):
         payload = {
             "input": text,
@@ -77,6 +92,21 @@ class Client:
             if "<!DOCTYPE html>" in r.text:
                 raise HTTPError(str(err))
 
+            raise HTTPError(str(err) + ": " + str(r.text))
+
+        return r.json()
+
+    def code_generation(self, instruction):
+        payload = {
+            "instruction": instruction
+        }
+
+        r = requests.post(
+            "{}/{}".format(self.root_url, "code-generation"), json=payload, headers=self.headers)
+
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
             raise HTTPError(str(err) + ": " + str(r.text))
 
         return r.json()

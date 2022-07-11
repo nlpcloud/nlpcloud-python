@@ -2,7 +2,7 @@
 
 This is the Python client for the [NLP Cloud](https://nlpcloud.io) API. See the [documentation](https://docs.nlpcloud.io) for more details.
 
-NLP Cloud serves high performance pre-trained or custom models for NER, sentiment-analysis, classification, summarization, dialogue summarization, paraphrasing, intent classification, product description and ad generation, chatbot, grammar and spelling correction, keywords and keyphrases extraction, text generation, question answering, machine translation, language detection, semantic similarity, tokenization, POS tagging, embeddings, and dependency parsing. It is ready for production, served through a REST API.
+NLP Cloud serves high performance pre-trained or custom models for NER, sentiment-analysis, classification, summarization, dialogue summarization, paraphrasing, intent classification, product description and ad generation, chatbot, grammar and spelling correction, keywords and keyphrases extraction, text generation, blog post generation, source code generation, question answering, machine translation, language detection, semantic similarity, tokenization, POS tagging, embeddings, and dependency parsing. It is ready for production, served through a REST API.
 
 You can either use the NLP Cloud pre-trained models, fine-tune your own models, or deploy your own models.
 
@@ -119,7 +119,7 @@ import nlpcloud
 client = nlpcloud.Client("<model>", "<your token>", lang="<your language code>")
 ```
 
-### Product Description and Ad Generation
+### Ad Generation And Product Description Endpoint
 
 Call the `ad_generation()` method and pass a list of keywords you want to generate you product description or ad from.
 
@@ -129,7 +129,17 @@ client.ad_generation(["Keyword 1", "Keyword 2", "Keyword 3", ...])
 
 The above command returns a JSON object.
 
-### Chatbot
+### Blog Post Generation Endpoint
+
+Call the `article_generation()` method and pass the title of your blog post:
+
+```python
+client.article_generation("<Your title>")
+```
+
+The above command returns a JSON object.
+
+### Chatbot Endpoint
 
 Call the `chatbot()` method and pass your input. As an option, you can also pass a conversation history that is a list of dictionnaries. Each dictionnary is made of an `input` and a `response` from the chatbot.
 
@@ -149,6 +159,16 @@ Call the `classification()` method and pass the following arguments:
 
 ```python
 client.classification("<Your block of text>", ["label 1", "label 2", "..."])
+```
+
+The above command returns a JSON object.
+
+### Code Generation Endpoint
+
+Call the `code_generation()` method and pass the instruction for the program you want to generate:
+
+```python
+client.code_generation("<Your instruction>")
 ```
 
 The above command returns a JSON object.
