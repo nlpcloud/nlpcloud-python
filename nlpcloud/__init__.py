@@ -220,6 +220,21 @@ class Client:
 
         return r.json()
 
+    def image_generation(self, text):
+        payload = {
+            "text": text
+        }
+
+        r = requests.post(
+            "{}/{}".format(self.root_url, "image-generation"), json=payload, headers=self.headers)
+
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            raise HTTPError(str(err) + ": " + str(r.text))
+
+        return r.json()
+
     def intent_classification(self, text):
         payload = {
             "text": text
