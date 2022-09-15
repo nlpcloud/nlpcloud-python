@@ -119,22 +119,22 @@ import nlpcloud
 client = nlpcloud.Client("<model>", "<your token>", lang="<your language code>")
 ```
 
-### Automatic Speech Recognition (Speech to Text) Endpoint
-
-Call the `asr()` method and pass a URL where your audio or video file is hosted.
-
-```python
-client.asr("Your url")
-```
-
-The above command returns a JSON object.
-
 ### Ad Generation And Product Description Endpoint
 
 Call the `ad_generation()` method and pass a list of keywords you want to generate you product description or ad from.
 
 ```python
 client.ad_generation(["Keyword 1", "Keyword 2", "Keyword 3", ...])
+```
+
+The above command returns a JSON object.
+
+### Automatic Speech Recognition (Speech to Text) Endpoint
+
+Call the `asr()` method and pass a URL where your audio or video file is hosted.
+
+```python
+client.asr("Your url")
 ```
 
 The above command returns a JSON object.
