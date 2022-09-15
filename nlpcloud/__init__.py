@@ -63,7 +63,7 @@ class Client:
         }
 
         r = requests.post(
-            "{}/{}".format(self.root_url, "url"), json=payload, headers=self.headers)
+            "{}/{}".format(self.root_url, "asr"), json=payload, headers=self.headers)
 
         try:
             r.raise_for_status()
