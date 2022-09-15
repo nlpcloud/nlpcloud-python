@@ -24,6 +24,24 @@ class Client:
         else:
             self.root_url = "{}/{}/{}".format(BASE_URL, API_VERSION, model)
 
+    def asr(self, url):
+        payload = {
+            "url": url
+        }
+
+        r = requests.post(
+            "{}/{}".format(self.root_url, "url"), json=payload, headers=self.headers)
+
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            if "<!DOCTYPE html>" in r.text:
+                raise HTTPError(str(err))
+
+            raise HTTPError(str(err) + ": " + str(r.text))
+
+        return r.json()
+
     def ad_generation(self, keywords):
         payload = {
             "keywords": keywords
