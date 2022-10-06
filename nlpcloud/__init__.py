@@ -352,6 +352,24 @@ class Client:
 
         return r.json()
 
+    def semantic_search(self, text):
+        payload = {
+            "text": text
+        }
+
+        r = requests.post(
+            "{}/{}".format(self.root_url, "semantic-search"), json=payload, headers=self.headers)
+
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            if "<!DOCTYPE html>" in r.text:
+                raise HTTPError(str(err))
+
+            raise HTTPError(str(err) + ": " + str(r.text))
+
+        return r.json()
+
     def semantic_similarity(self, sentences):
         payload = {
             "sentences": sentences
