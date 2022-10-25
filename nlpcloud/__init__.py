@@ -421,9 +421,10 @@ class Client:
 
         return r.json()
 
-    def summarization(self, text):
+    def summarization(self, text, size=None):
         payload = {
-            "text": text
+            "text": text,
+            "size": size
         }
 
         r = requests.post(
