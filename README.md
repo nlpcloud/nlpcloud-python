@@ -119,6 +119,22 @@ import nlpcloud
 client = nlpcloud.Client("<model>", "<your token>", lang="<your language code>")
 ```
 
+If you want to make asynchronous requests, pass `asynchronous=True`.
+
+```python
+import nlpcloud
+
+client = nlpcloud.Client("<model>", "<your token>", asynchronous=True)
+```
+
+If you are making asynchronous requests, you will always receive a quick response containing a URL. You should then poll this URL with `async_result()` on a regular basis (every 10 seconds for example) in order to check if the result is available. Here is an example:
+
+```python
+client.async_result("https://api.nlpcloud.io/v1/get-async-result/21718218-42e8-4be9-a67f-b7e18e03b436")
+```
+
+The above command returns a JSON object.
+
 ### Ad Generation And Product Description Endpoint
 
 Call the `ad_generation()` method and pass a list of keywords you want to generate you product description or ad from.
