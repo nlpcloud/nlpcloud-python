@@ -227,6 +227,17 @@ class Client:
 
         return r.json()
 
+    def get_async_result(self, id):
+        r = requests.get(
+            "{}/{}/{}".format(self.root_url, "get-async-result", id), headers=self.headers)
+
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            raise HTTPError(str(err) + ": " + str(r.text))
+
+        return r.json()
+
     def gs_correction(self, text):
         payload = {
             "text": text
