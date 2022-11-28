@@ -6,23 +6,27 @@ API_VERSION = "v1"
 
 
 class Client:
-    def __init__(self, model, token, gpu=False, lang=""):
+    def __init__(self, model, token, gpu=False, lang="", asynchronous=False):
         self.headers = {
             "Authorization": "Token " + token,
             "User-Agent": "nlpcloud-python-client"
         }
+
+        self.root_url = f"{BASE_URL}/{API_VERSION}/"
+
         if lang == "en":
             lang = ""
-        if gpu and lang:
-            self.root_url = "{}/{}/gpu/{}/{}".format(
-                BASE_URL, API_VERSION, lang, model)
-        elif gpu and not lang:
-            self.root_url = "{}/{}/gpu/{}".format(BASE_URL, API_VERSION, model)
-        elif not gpu and lang:
-            self.root_url = "{}/{}/{}/{}".format(BASE_URL,
-                                                 API_VERSION, lang, model)
-        else:
-            self.root_url = "{}/{}/{}".format(BASE_URL, API_VERSION, model)
+
+        if gpu:
+            self.root_url += "gpu/"
+
+        if lang:
+            self.root_url += lang + "/"
+
+        if asynchronous:
+            self.root_url += "async/"
+
+        self.root_url += model
 
     def ad_generation(self, keywords):
         payload = {
