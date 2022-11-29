@@ -20,11 +20,11 @@ class Client:
         if gpu:
             self.root_url += "gpu/"
 
-        if lang:
-            self.root_url += lang + "/"
-
         if asynchronous:
             self.root_url += "async/"
+
+        if lang:
+            self.root_url += lang + "/"
 
         self.root_url += model
 
