@@ -61,10 +61,11 @@ class Client:
 
         return r.json()
 
-    def asr(self, url=None, encoded_file=None):
+    def asr(self, url=None, encoded_file=None, input_language=None):
         payload = {
             "url": url,
-            "encoded_file": encoded_file
+            "encoded_file": encoded_file,
+            "input_language": input_language
         }
 
         r = requests.post(
