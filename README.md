@@ -147,7 +147,11 @@ The above command returns a JSON object.
 
 ### Automatic Speech Recognition (Speech to Text) Endpoint
 
-Call the `asr()` method and pass a URL where your audio or video file is hosted.
+Call the `asr()` method and pass the following arguments:
+
+1. (Optional: either this or the encoded file should be set) `url`: a URL where your audio or video file is hosted
+1. (Optional: either this or the url should be set) `encoded_file`: a base 64 encoded version of your file
+1. (Optional) `input_language`: the language of your file as ISO code
 
 ```python
 client.asr("Your url")
