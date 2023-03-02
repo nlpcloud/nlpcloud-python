@@ -368,9 +368,10 @@ class Client:
 
         return r.json()
 
-    def semantic_search(self, text):
+    def semantic_search(self, text, num_results=None):
         payload = {
-            "text": text
+            "text": text,
+            "num_results": num_results
         }
 
         r = requests.post(
