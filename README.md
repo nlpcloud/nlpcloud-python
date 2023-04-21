@@ -385,6 +385,16 @@ client.sentiment("<Your block of text>")
 
 The above command returns a JSON object.
 
+### Speech Synthesis Endpoint
+
+Call the `speech_synthesis()` method and pass the text you want to convert to audio:
+
+```python
+client.speech_synthesis("<Your block of text>")
+```
+
+The above command returns a JSON object.
+
 ### Summarization Endpoint
 
 Call the `summarization()` method and pass the text you want to summarize.

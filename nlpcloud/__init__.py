@@ -440,6 +440,22 @@ class Client:
 
         return r.json()
 
+    def speech_synthesis(self, text, voice=None):
+        payload = {
+            "text": text,
+            "voice": voice
+        }
+
+        r = requests.post(
+            "{}/{}".format(self.root_url, "speech-synthesis"), json=payload, headers=self.headers)
+
+        try:
+            r.raise_for_status()
+        except HTTPError as err:
+            raise HTTPError(str(err) + ": " + str(r.text))
+
+        return r.json()
+
     def summarization(self, text, size=None):
         payload = {
             "text": text,
