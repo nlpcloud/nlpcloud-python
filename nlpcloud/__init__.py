@@ -46,21 +46,6 @@ class Client:
 
         return r.json()
 
-    def article_generation(self, title):
-        payload = {
-            "title": title
-        }
-
-        r = requests.post(
-            "{}/{}".format(self.root_url, "article-generation"), json=payload, headers=self.headers)
-
-        try:
-            r.raise_for_status()
-        except HTTPError as err:
-            raise HTTPError(str(err) + ": " + str(r.text))
-
-        return r.json()
-
     def asr(self, url=None, encoded_file=None, input_language=None):
         payload = {
             "url": url,
