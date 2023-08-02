@@ -188,31 +188,25 @@ class Client:
 
         return r.json()
 
-    def generation(self, text, min_length=None, max_length=None, length_no_input=None,
-                   end_sequence=None, remove_input=None, do_sample=None, num_beams=None, early_stopping=None,
-                   no_repeat_ngram_size=None, num_return_sequences=None, top_k=None, top_p=None,
-                   temperature=None, repetition_penalty=None, length_penalty=None, bad_words=None, remove_end_sequence=None,
-                   is_instruct=None):
+    def generation(self, text, max_length=None, length_no_input=None,
+                   end_sequence=None, remove_input=None, num_beams=None,
+                   num_return_sequences=None, top_k=None, top_p=None,
+                   temperature=None, repetition_penalty=None, bad_words=None,
+                   remove_end_sequence=None):
         payload = {
             "text": text,
-            "min_length": min_length,
             "max_length": max_length,
             "length_no_input": length_no_input,
             "end_sequence": end_sequence,
             "remove_input": remove_input,
-            "do_sample": do_sample,
             "num_beams": num_beams,
-            "early_stopping": early_stopping,
-            "no_repeat_ngram_size": no_repeat_ngram_size,
             "num_return_sequences": num_return_sequences,
             "top_k": top_k,
             "top_p": top_p,
             "temperature": temperature,
             "repetition_penalty": repetition_penalty,
-            "length_penalty": length_penalty,
             "bad_words": bad_words,
             "remove_end_sequence": remove_end_sequence,
-            "is_instruct": is_instruct,
         }
 
         r = requests.post(
