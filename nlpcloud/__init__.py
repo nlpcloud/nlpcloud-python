@@ -76,7 +76,10 @@ class Client:
         except HTTPError as err:
             raise HTTPError(str(err) + ": " + str(r.text))
 
-        return r.json()
+        try:
+            return r.json()
+        except requests.exceptions.JSONDecodeError:
+            return None
 
     def chatbot(self, text, context=None, history=None):
         payload = {

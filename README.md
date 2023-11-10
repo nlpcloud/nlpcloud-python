@@ -133,7 +133,7 @@ If you are making asynchronous requests, you will always receive a quick respons
 client.async_result("https://api.nlpcloud.io/v1/get-async-result/21718218-42e8-4be9-a67f-b7e18e03b436")
 ```
 
-The above command returns a JSON object.
+The above command returns a JSON object when the response is ready. It returns `None` otherwise.
 
 ### Automatic Speech Recognition (Speech to Text) Endpoint
 
