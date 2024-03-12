@@ -287,16 +287,6 @@ client.langdetection("<The text you want to analyze>")
 
 The above command returns a JSON object.
 
-### Library Versions Endpoint
-
-Call the `lib_versions()` method to know the versions of the libraries used behind the hood with the model (for example the PyTorch, TensorFlow, or spaCy version used).
-
-```python
-client.lib_versions()
-```
-
-The above command returns a JSON object.
-
 ### Paraphrasing Endpoint
 
 Call the `paraphrasing()` method and pass the text you want to paraphrase.

@@ -303,20 +303,6 @@ class Client:
 
         return r.json()
 
-    def lib_versions(self):
-        r = requests.get(
-            "{}/{}".format(self.root_url, "versions"), headers=self.headers)
-
-        try:
-            r.raise_for_status()
-        except HTTPError as err:
-            if "<!DOCTYPE html>" in r.text:
-                raise HTTPError(str(err))
-
-            raise HTTPError(str(err) + ": " + str(r.text))
-
-        return r.json()
-
     def paraphrasing(self, text):
         payload = {
             "text": text
