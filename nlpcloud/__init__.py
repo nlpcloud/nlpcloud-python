@@ -395,9 +395,10 @@ class Client:
 
         return r.json()
 
-    def sentiment(self, text):
+    def sentiment(self, text, target=None):
         payload = {
-            "text": text
+            "text": text,
+            "target": target
         }
 
         r = requests.post(
